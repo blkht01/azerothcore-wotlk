@@ -20,7 +20,9 @@
 
 // The name of this function should match:
 // void Add${NameOfDirectory}Scripts()
+//void AddSC_spell_on_item_equip();
+
 void AddCustomScripts()
 {
-    // MyExampleScript()
+    //AddSC_spell_on_item_equip();
 }

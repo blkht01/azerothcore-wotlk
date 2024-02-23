@@ -13218,6 +13218,7 @@ uint32 Player::GetBarberShopCost(uint8 newhairstyle, uint8 newhaircolor, uint8 n
     return uint32(cost);
 }
 
+// Qeme
 void Player::InitGlyphsForLevel()
 {
     for (uint32 i = 0; i < sGlyphSlotStore.GetNumRows(); ++i)
@@ -13229,15 +13230,15 @@ void Player::InitGlyphsForLevel()
     uint32 value = 0;
 
     // 0x3F = 0x01 | 0x02 | 0x04 | 0x08 | 0x10 | 0x20 for 80 level
-    if (level >= 15)
+    if (level >= 15) // 15
         value |= (0x01 | 0x02);
-    if (level >= 30)
+    if (level >= 15) // 30
         value |= 0x08;
-    if (level >= 50)
+    if (level >= 15) // 50
         value |= 0x04;
-    if (level >= 70)
+    if (level >= 15) // 70
         value |= 0x10;
-    if (level >= 80)
+    if (level >= 15) // 80
         value |= 0x20;
 
     SetUInt32Value(PLAYER_GLYPHS_ENABLED, value);
