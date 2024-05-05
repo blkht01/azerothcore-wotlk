@@ -20,9 +20,11 @@
 
 // The name of this function should match:
 // void Add${NameOfDirectory}Scripts()
-//void AddSC_spell_on_item_equip();
+void ADDSC_player_unlearn_titan();
+void ADDSC_player_unlearn_felguard();
 
 void AddCustomScripts()
 {
-    //AddSC_spell_on_item_equip();
+    ADDSC_player_unlearn_titan();
+    ADDSC_player_unlearn_felguard();
 }
