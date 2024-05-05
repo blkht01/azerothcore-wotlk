@@ -1368,7 +1368,9 @@ void AuraEffect::HandleShapeshiftBoosts(Unit* target, bool apply) const
             }
 
             // Leader of the Pack
-            if (player->HasTalent(17007, player->GetActiveSpec()))
+            // Classic Plus, Qeme
+            // if (player->HasTalent(17007, player->GetActiveSpec()))
+            if (player->HasSpell(17007)) // Ire dev
             {
                 SpellInfo const* spellInfo = sSpellMgr->GetSpellInfo(24932);
                 if (spellInfo && spellInfo->Stances & (1 << (GetMiscValue() - 1)))
