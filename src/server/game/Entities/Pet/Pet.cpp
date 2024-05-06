@@ -1178,6 +1178,10 @@ bool Guardian::InitStatsForLevel(uint8 petlevel)
                 {
                     case NPC_FELGUARD:
                         {
+                            // Felguard strength, agility and spirit
+                            AddAura(100010, this);
+                            // Felguard attack power and armor
+                            AddAura(100012, this);
                             // xinef: Glyph of Felguard, so ugly im crying... no appropriate spell
                             if (AuraEffect* aurEff = owner->GetAuraEffectDummy(SPELL_GLYPH_OF_FELGUARD))
                             {
