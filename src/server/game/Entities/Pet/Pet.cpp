@@ -1319,6 +1319,8 @@ bool Guardian::InitStatsForLevel(uint8 petlevel)
                             AddAura(SPELL_FERAL_SPIRIT_SCALING_01, this);
                             AddAura(SPELL_FERAL_SPIRIT_SCALING_02, this);
                             AddAura(SPELL_FERAL_SPIRIT_SCALING_03, this);
+			    // Damage Reduction Modifier
+			    AddAura(100024, this);
 
                             if (owner->getRace() == RACE_ORC)
                             {
@@ -1342,6 +1344,8 @@ bool Guardian::InitStatsForLevel(uint8 petlevel)
                             AddAura(SPELL_MAGE_PET_SCALING_02, this);
                             AddAura(SPELL_MAGE_PET_SCALING_03, this);
                             AddAura(SPELL_MAGE_PET_SCALING_04, this);
+			    // Damage Reduction Modifier
+			    AddAura(100023, this);
                             break;
                         }
                     case NPC_EBON_GARGOYLE: // Ebon Gargoyle
