@@ -20,3 +20,5 @@ DELETE FROM `npc_trainer` WHERE `ID`=200006 AND `SpellID`=2091;
 INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (200006, 2091, 3600, 0, 0, 25, 0);
 DELETE FROM `npc_trainer` WHERE `ID`=200006 AND `SpellID`=20739;
 INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (200006, 20739, 3600, 0, 0, 25, 0);
+DELETE FROM `npc_trainer` WHERE `ID`=200006 AND `SpellID`=1823;
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (200006, 1823, 3600, 0, 0, 25, 0);
