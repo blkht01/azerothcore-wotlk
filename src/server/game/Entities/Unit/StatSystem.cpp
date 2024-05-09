@@ -946,8 +946,8 @@ void Player::UpdateManaRegen()
         WARLOCK_DESTRUCTION_MANA_COEFFICIENT = 2,
 
         PALADIN_HOLY_MANA_COEFFICIENT = 1,
-        PALDIN_PROTECTION_MANA_COEFFICIENT = 2,
         PALADIN_PROTECTION_MANA_COEFFICIENT = 2,
+        PALADIN_RETRIBUTION_MANA_COEFFICIENT = 2,
 
         PRIEST_DISCIPLINE_MANA_COEFFICIENT = 1,
         PRIEST_HOLY_MANA_COEFFICIENT = 1,
@@ -1009,7 +1009,7 @@ void Player::UpdateManaRegen()
         m_baseManaRegen = currentLevel * PALADIN_PROTECTION_MANA_COEFFICIENT;
         break;
     case TALENT_TREE_PALADIN_RETRIBUTION:
-        m_baseManaRegen = currentLevel * PALADIN_HOLY_MANA_COEFFICIENT;
+        m_baseManaRegen = currentLevel * PALADIN_RETRIBUTION_MANA_COEFFICIENT;
         break;
 
     /* Priest */
