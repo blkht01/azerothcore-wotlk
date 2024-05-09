@@ -1,3 +1,4 @@
+
 /*
  * This file is part of the AzerothCore Project. See AUTHORS file for Copyright information
  *
@@ -2915,6 +2916,7 @@ bool Player::addTalent(uint32 spellId, uint8 addSpecMask, uint8 oldTalentRank)
     // xinef: find the spell on our talent map
     PlayerTalentMap::iterator itr = m_talents.find(spellId);
 
+
     // xinef: we do not have such a spell on our talent map
     if (itr == m_talents.end())
     {
@@ -2926,6 +2928,9 @@ bool Player::addTalent(uint32 spellId, uint8 addSpecMask, uint8 oldTalentRank)
         newTalent->inSpellBook = talentInfo->addToSpellBook && !spellInfo->HasAttribute(SPELL_ATTR0_PASSIVE) && !spellInfo->HasEffect(SPELL_EFFECT_LEARN_SPELL);
 
         m_talents[spellId] = newTalent;
+    /* THIS IS THE CUSTOM MANA REGEN SYSTEM */
+    UpdateManaRegen();
+    /* THE CUSTOM MANA REGEN SYSTEM ENDS HERE*/
         return true;
     }
     // xinef: if current mask does not cover addMask, add it to iterator and save changes to DB
@@ -2934,7 +2939,9 @@ bool Player::addTalent(uint32 spellId, uint8 addSpecMask, uint8 oldTalentRank)
         itr->second->specMask |= addSpecMask;
         if (itr->second->State != PLAYERSPELL_NEW)
             itr->second->State = PLAYERSPELL_CHANGED;
-
+    /* THIS IS THE CUSTOM MANA REGEN SYSTEM */
+    UpdateManaRegen();
+    /* THE CUSTOM MANA REGEN SYSTEM ENDS HERE*/
         return true;
     }
 
@@ -3770,6 +3777,10 @@ bool Player::resetTalents(bool noResetCost)
         m_resetTalentsCost = resetCost;
         m_resetTalentsTime = GameTime::GetGameTime().count();
     }
+
+    /* THIS IS THE CUSTOM MANA REGEN SYSTEM */
+    UpdateManaRegen();
+    /* THE CUSTOM MANA REGEN SYSTEM ENDS HERE*/
 
     return true;
 }
@@ -15152,6 +15163,9 @@ void Player::ActivateSpec(uint8 spec)
             ++iter;
         }
     }
+    /* THIS IS THE CUSTOM MANA REGEN SYSTEM */
+    UpdateManaRegen();
+    /* THE CUSTOM MANA REGEN SYSTEM ENDS HERE*/
 
     m_usedTalentCount = spentTalents;
     InitTalentForLevel();
