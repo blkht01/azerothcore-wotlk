@@ -3658,6 +3658,9 @@ uint32 Player::resetTalentsCost() const
     // The first time reset costs 1 gold
     if (m_resetTalentsCost < 1 * GOLD)
         return 1 * GOLD;
+    else return 2 * GOLD;
+    
+    /*
     // then 5 gold
     else if (m_resetTalentsCost < 5 * GOLD)
         return 5 * GOLD;
@@ -3683,7 +3686,7 @@ uint32 Player::resetTalentsCost() const
                 new_cost = 50 * GOLD;
             return new_cost;
         }
-    }
+    }*/
 }
 
 bool Player::resetTalents(bool noResetCost)
