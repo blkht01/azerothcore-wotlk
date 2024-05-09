@@ -930,6 +930,127 @@ void Player::UpdateManaRegen()
         return;
     }
 
+
+    /*THIS IS OUR CUSTOM MANA REGEN SYSTEM*/
+        enum ManaRegenCoefficient {
+        DRUID_BALANCE_MANA_COEFFICIENT = 2,
+        DRUID_RESTORATION_MANA_COEFFICIENT = 1,
+        DRUID_FERAL_MANA_COEFFICIENT = 1,
+
+        HUNTER_BEASTMASTERY_MANA_COEFFICIENT = 1,
+        HUNTER_MARKSMAN_MANA_COEFFICIENT = 1,
+        HUNTER_SURVIVAL_MANA_COEFFICIENT = 1,
+
+        WARLOCK_AFFLICTION_MANA_COEFFICIENT = 2,
+        WARLOCK_DEMONOLOGY_MANA_COEFFICIENT = 2,
+        WARLOCK_DESTRUCTION_MANA_COEFFICIENT = 2,
+
+        PALADIN_HOLY_MANA_COEFFICIENT = 2,
+        PALDIN_PROTECTION_MANA_COEFFICIENT = 2,
+        PALADIN_PROTECTION_MANA_COEFFICIENT = 2,
+
+        PRIEST_DISCIPLINE_MANA_COEFFICIENT = 1,
+        PRIEST_HOLY_MANA_COEFFICIENT = 1,
+        PRIEST_SHADOW_MANA_COEFFICIENT = 2,
+
+        SHAMAN_ELEMENTAL_MANA_COEFFICIENT = 2,
+        SHAMAN_ENHANCEMENT_MANA_COEFFICIENT = 1,
+        SHAMAN_RESTORATION_MANA_CEOFFICIENT = 1,
+
+        MAGE_ARCANE_MANA_COEFFICIENT = 2,
+        MAGE_FIRE_MANA_COEFFICIENT = 2,
+        MAGE_FROST_MANA_COEFFICIENT = 2,
+    };
+
+    
+    uint8 currentLevel = GetLevel();
+    // uint32 bonusMP5 = 0;
+    /* In the future we can add here a mp5Bonus variable, which is changed in the switch
+       and then we add it to float power_regen_mp5 formula*/
+    switch (GetSpec(GetActiveSpec())) {
+    /* Druid */
+    case TALENT_TREE_DRUID_BALANCE:
+        m_baseManaRegen = currentLevel * DRUID_BALANCE_MANA_COEFFICIENT;
+        break;
+    case TALENT_TREE_DRUID_FERAL_COMBAT:
+        m_baseManaRegen = currentLevel * DRUID_FERAL_MANA_COEFFICIENT;
+        break;
+    case TALENT_TREE_DRUID_RESTORATION:
+        m_baseManaRegen = currentLevel * DRUID_RESTORATION_MANA_COEFFICIENT;
+        break;
+
+    /* Hunter */
+    case TALENT_TREE_HUNTER_BEAST_MASTERY:
+        m_baseManaRegen = currentLevel * HUNTER_BEASTMASTERY_MANA_COEFFICIENT;
+        break;
+    case TALENT_TREE_HUNTER_MARKSMANSHIP:
+        m_baseManaRegen = currentLevel * HUNTER_MARKSMAN_MANA_COEFFICIENT;
+        break;
+    case TALENT_TREE_HUNTER_SURVIVAL:
+        m_baseManaRegen = currentLevel * HUNTER_SURVIVAL_MANA_COEFFICIENT;
+        break;
+
+    /* Warlock */
+    case TALENT_TREE_WARLOCK_AFFLICTION:
+        m_baseManaRegen = currentLevel * WARLOCK_AFFLICTION_MANA_COEFFICIENT;
+        break;
+    case TALENT_TREE_WARLOCK_DEMONOLOGY:
+        m_baseManaRegen = currentLevel * WARLOCK_DEMONOLOGY_MANA_COEFFICIENT;
+        break;
+    case TALENT_TREE_WARLOCK_DESTRUCTION:
+        m_baseManaRegen = currentLevel * WARLOCK_DESTRUCTION_MANA_COEFFICIENT;
+        break;
+
+    /* Paladin */
+    case TALENT_TREE_PALADIN_HOLY:
+        m_baseManaRegen = currentLevel * PALADIN_HOLY_MANA_COEFFICIENT;
+        break;
+    case TALENT_TREE_PALADIN_PROTECTION:
+        m_baseManaRegen = currentLevel * PALADIN_PROTECTION_MANA_COEFFICIENT;
+        break;
+    case TALENT_TREE_PALADIN_RETRIBUTION:
+        m_baseManaRegen = currentLevel * PALADIN_HOLY_MANA_COEFFICIENT;
+        break;
+
+    /* Priest */
+    case TALENT_TREE_PRIEST_DISCIPLINE:
+        m_baseManaRegen = currentLevel * PRIEST_DISCIPLINE_MANA_COEFFICIENT;
+        break;
+    case TALENT_TREE_PRIEST_HOLY:
+        m_baseManaRegen = currentLevel * PRIEST_HOLY_MANA_COEFFICIENT;
+        break;
+    case TALENT_TREE_PRIEST_SHADOW:
+        m_baseManaRegen = currentLevel * PRIEST_SHADOW_MANA_COEFFICIENT;
+        break;
+
+    /* Shaman */
+    case TALENT_TREE_SHAMAN_ELEMENTAL:
+        m_baseManaRegen = currentLevel * SHAMAN_ELEMENTAL_MANA_COEFFICIENT;
+        break;
+    case TALENT_TREE_SHAMAN_ENHANCEMENT:
+        m_baseManaRegen = currentLevel * SHAMAN_ENHANCEMENT_MANA_COEFFICIENT;
+        break;
+    case TALENT_TREE_SHAMAN_RESTORATION:
+        m_baseManaRegen = currentLevel * SHAMAN_ELEMENTAL_MANA_COEFFICIENT;
+        break;
+
+    /* Mage */
+    case TALENT_TREE_MAGE_ARCANE:
+        m_baseManaRegen = currentLevel * MAGE_ARCANE_MANA_COEFFICIENT;
+        break;
+    case TALENT_TREE_MAGE_FIRE:
+        m_baseManaRegen = currentLevel * MAGE_FIRE_MANA_COEFFICIENT;
+        break;
+    case TALENT_TREE_MAGE_FROST:
+        m_baseManaRegen = currentLevel * MAGE_FROST_MANA_COEFFICIENT;
+        break;
+    default:
+        m_baseManaRegen = currentLevel;
+	break;
+    }
+    /* THE CUSTOM MANA REGEN SYSTEM ENDS HERE*/
+
+
     float Intellect = GetStat(STAT_INTELLECT);
     // Mana regen from spirit and intellect
     float power_regen = std::sqrt(Intellect) * OCTRegenMPPerSpirit();
