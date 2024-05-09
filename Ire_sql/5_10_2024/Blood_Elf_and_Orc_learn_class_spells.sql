@@ -1,0 +1,14 @@
+DELETE FROM `playercreateinfo_spell_custom` WHERE `racemask`=512 AND `classmask`=1 AND `Spell`=100028;
+INSERT INTO `playercreateinfo_spell_custom` (`racemask`, `classmask`, `Spell`, `Note`) VALUES (512, 1, 100028, 'Arcane Torrent Warrior');
+DELETE FROM `playercreateinfo_spell_custom` WHERE `racemask`=512 AND `classmask`=64 AND `Spell`=28730;
+INSERT INTO `playercreateinfo_spell_custom` (`racemask`, `classmask`, `Spell`, `Note`) VALUES (512, 64, 28730, 'Arcane Torrent Shaman');
+DELETE FROM `playercreateinfo_spell_custom` WHERE `racemask`=512 AND `classmask`=1024 AND `Spell`=28730;
+INSERT INTO `playercreateinfo_spell_custom` (`racemask`, `classmask`, `Spell`, `Note`) VALUES (512, 1024, 28730, 'Arcane Torrent Druid');
+DELETE FROM `playercreateinfo_spell_custom` WHERE `racemask`=2 AND `classmask`=2 AND `Spell`=33697;
+INSERT INTO `playercreateinfo_spell_custom` (`racemask`, `classmask`, `Spell`, `Note`) VALUES (2, 2, 33697, 'Blood Fury Paladin');
+DELETE FROM `playercreateinfo_spell_custom` WHERE `racemask`=2 AND `classmask`=1024 AND `Spell`=33697;
+INSERT INTO `playercreateinfo_spell_custom` (`racemask`, `classmask`, `Spell`, `Note`) VALUES (2, 1024, 33697, 'Blood Fury Druid');
+DELETE FROM `playercreateinfo_spell_custom` WHERE `racemask`=2 AND `classmask`=16 AND `Spell`=33702;
+INSERT INTO `playercreateinfo_spell_custom` (`racemask`, `classmask`, `Spell`, `Note`) VALUES (2, 16, 33702, 'Blood Fury Priest');
+DELETE FROM `playercreateinfo_spell_custom` WHERE `racemask`=2 AND `classmask`=128 AND `Spell`=33702;
+INSERT INTO `playercreateinfo_spell_custom` (`racemask`, `classmask`, `Spell`, `Note`) VALUES (2, 128, 33702, 'Blood Fury Mage');
