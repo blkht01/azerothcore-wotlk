@@ -22,9 +22,13 @@
 // void Add${NameOfDirectory}Scripts()
 void ADDSC_player_unlearn_titan();
 void ADDSC_player_unlearn_felguard();
+//void ADDSC_honor_rank_check();
+void ADDSC_player_learn_trickster_spells();
 
 void AddCustomScripts()
 {
     ADDSC_player_unlearn_titan();
     ADDSC_player_unlearn_felguard();
+   // ADDSC_honor_rank_check();
+    ADDSC_player_learn_trickster_spells();
 }

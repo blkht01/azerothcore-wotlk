@@ -1291,6 +1291,8 @@ void AuraEffect::HandleShapeshiftBoosts(Unit* target, bool apply) const
         case FORM_CREATURECAT:
         case FORM_CREATUREBEAR:
             break;
+        case FORM_TRICKSTER:
+     	    break;
         default:
             break;
     }
@@ -1366,7 +1368,21 @@ void AuraEffect::HandleShapeshiftBoosts(Unit* target, bool apply) const
                     }
                 }
             }
-
+	    // Trickster Spells
+	    // Trickster ID = 100006
+	    // Classic Plus, Ire
+            // spellId = 100029;     
+            if (player->HasSpell(100006)) {
+                SpellInfo const* spellInfo = sSpellMgr->GetSpellInfo(100029);
+                if (spellInfo && spellInfo->Stances & (1 << (GetMiscValue() - 1)))
+                    target->CastSpell(target, 100029, true, nullptr, this, target->GetGUID());
+            }
+            // spellId2 = 100030;
+            if (player->HasSpell(100006)) {
+                SpellInfo const* spellInfo = sSpellMgr->GetSpellInfo(100030);
+                if (spellInfo && spellInfo->Stances & (1 << (GetMiscValue() - 1)))
+                    target->CastSpell(target, 100030, true, nullptr, this, target->GetGUID());
+            }
             // Leader of the Pack
             // Classic Plus, Ire (For search reasons: Qeme)
             // if (player->HasTalent(17007, player->GetActiveSpec())) // Removed to fix leader of the pack
@@ -1884,6 +1900,7 @@ void AuraEffect::HandleAuraModShapeshift(AuraApplication const* aurApp, uint8 mo
         case FORM_BATTLESTANCE:                             // 0x11
         case FORM_DEFENSIVESTANCE:                          // 0x12
         case FORM_BERSERKERSTANCE:                          // 0x13
+	case FORM_GLADIATOR:                                // 0x18
             PowerType = POWER_RAGE;
             break;
 
@@ -1904,6 +1921,7 @@ void AuraEffect::HandleAuraModShapeshift(AuraApplication const* aurApp, uint8 mo
         case FORM_TEST:                                     // 0x14
         case FORM_ZOMBIE:                                   // 0x15
         case FORM_METAMORPHOSIS:                            // 0x16
+        case FORM_TRICKSTER:                                // 0x17
         case FORM_UNDEAD:                                   // 0x19
         case FORM_MASTER_ANGLER:                            // 0x1A
         case FORM_FLIGHT_EPIC:                              // 0x1B
