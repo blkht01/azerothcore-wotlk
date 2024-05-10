@@ -24,6 +24,7 @@ void ADDSC_player_unlearn_titan();
 void ADDSC_player_unlearn_felguard();
 //void ADDSC_honor_rank_check();
 void ADDSC_player_learn_trickster_spells();
+void ADDSC_player_learn_unlearn_metamorphosis_spells();
 
 void AddCustomScripts()
 {
@@ -31,4 +32,5 @@ void AddCustomScripts()
     ADDSC_player_unlearn_felguard();
    // ADDSC_honor_rank_check();
     ADDSC_player_learn_trickster_spells();
+    ADDSC_player_learn_unlearn_metamorphosis_spells();
 }
