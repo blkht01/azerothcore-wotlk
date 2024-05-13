@@ -141,6 +141,7 @@ enum BuyResult
     BUY_ERR_CANT_CARRY_MORE                     = 8,
     BUY_ERR_RANK_REQUIRE                        = 11,
     BUY_ERR_REPUTATION_REQUIRE                  = 12
+    // BUY_ERR_HONOR_RANK_REQUIRE                  = 13      // New, Honor Rank Required // Qeme // Classic-Plus
 };
 
 // EnumUtils: DESCRIBE THIS

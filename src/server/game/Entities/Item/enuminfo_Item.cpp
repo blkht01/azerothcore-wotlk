@@ -337,6 +337,7 @@ AC_API_EXPORT EnumText EnumUtils<BuyResult>::ToString(BuyResult value)
         case BUY_ERR_CANT_CARRY_MORE: return { "BUY_ERR_CANT_CARRY_MORE", "BUY_ERR_CANT_CARRY_MORE", "" };
         case BUY_ERR_RANK_REQUIRE: return { "BUY_ERR_RANK_REQUIRE", "BUY_ERR_RANK_REQUIRE", "" };
         case BUY_ERR_REPUTATION_REQUIRE: return { "BUY_ERR_REPUTATION_REQUIRE", "BUY_ERR_REPUTATION_REQUIRE", "" };
+        // case BUY_ERR_HONOR_RANK_REQUIRE: return { "BUY_ERR_HONOR_RANK_REQUIRE", "BUY_ERR_HONOR_RANK_REQUIRE", "" };
         default: throw std::out_of_range("value");
     }
 }
@@ -358,6 +359,7 @@ AC_API_EXPORT BuyResult EnumUtils<BuyResult>::FromIndex(size_t index)
         case 6: return BUY_ERR_CANT_CARRY_MORE;
         case 7: return BUY_ERR_RANK_REQUIRE;
         case 8: return BUY_ERR_REPUTATION_REQUIRE;
+        // case 9: return BUY_ERR_HONOR_RANK_REQUIRE;
         default: throw std::out_of_range("index");
     }
 }
@@ -376,6 +378,7 @@ AC_API_EXPORT size_t EnumUtils<BuyResult>::ToIndex(BuyResult value)
         case BUY_ERR_CANT_CARRY_MORE: return 6;
         case BUY_ERR_RANK_REQUIRE: return 7;
         case BUY_ERR_REPUTATION_REQUIRE: return 8;
+        // case BUY_ERR_HONOR_RANK_REQUIRE: return 9;
         default: throw std::out_of_range("value");
     }
 }
