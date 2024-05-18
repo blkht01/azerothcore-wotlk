@@ -420,3 +420,8 @@ DELETE FROM `npc_vendor` WHERE `entry`=400195 AND `item`=100162 AND `ExtendedCos
 INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES (400195, 0, 100162, 0, 0, 3027, NULL);
 DELETE FROM `npc_vendor` WHERE `entry`=400195 AND `item`=100163 AND `ExtendedCost`=3027;
 INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES (400195, 0, 100163, 0, 0, 3027, NULL);
+
+DELETE FROM `achievement_reward` WHERE `ID`=5038;
+INSERT INTO `achievement_reward` (`ID`, `TitleA`, `TitleH`, `ItemID`, `Sender`, `Subject`, `Body`, `MailTemplateID`) VALUES (5038, 188, 188, 0, 0, NULL, NULL, 0);
+DELETE FROM `achievement_reward` WHERE `ID`=5037;
+INSERT INTO `achievement_reward` (`ID`, `TitleA`, `TitleH`, `ItemID`, `Sender`, `Subject`, `Body`, `MailTemplateID`) VALUES (5037, 187, 187, 0, 0, NULL, NULL, 0);
