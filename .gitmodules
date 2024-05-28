@@ -28,3 +28,12 @@
 [submodule "modules/mod-transmog"]
 	path = modules/mod-transmog
 	url = https://github.com/azerothcore/mod-transmog.git
+[submodule "modules/mod-1v1-arena"]
+	path = modules/mod-1v1-arena
+	url = https://github.com/azerothcore/mod-1v1-arena.git
+[submodule "modules/mod-challenge-modes"]
+	path = modules/mod-challenge-modes
+	url = https://github.com/ZhengPeiRu21/mod-challenge-modes.git
+[submodule "modules/mod-zone-difficulty"]
+	path = modules/mod-zone-difficulty
+	url = https://github.com/azerothcore/mod-zone-difficulty.git
