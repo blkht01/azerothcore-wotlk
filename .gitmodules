@@ -37,3 +37,9 @@
 [submodule "modules/mod-zone-difficulty"]
 	path = modules/mod-zone-difficulty
 	url = https://github.com/azerothcore/mod-zone-difficulty.git
+[submodule "modules/mod-solo-lfg"]
+	path = modules/mod-solo-lfg
+	url = https://github.com/azerothcore/mod-solo-lfg.git
+[submodule "modules/mod-solocraft"]
+	path = modules/mod-solocraft
+	url = https://github.com/azerothcore/mod-solocraft.git
