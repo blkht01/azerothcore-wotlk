@@ -2177,6 +2177,9 @@ void Player::SetInWater(bool apply)
     RemoveAurasWithInterruptFlags(apply ? AURA_INTERRUPT_FLAG_NOT_ABOVEWATER : AURA_INTERRUPT_FLAG_NOT_UNDERWATER);
 
     getHostileRefMgr().updateThreatTables();
+
+    if (InstanceScript* instance = GetInstanceScript())
+        instance->OnPlayerInWaterStateUpdate(this, apply);
 }
 
 bool Player::IsInAreaTriggerRadius(AreaTrigger const* trigger, float delta) const
@@ -3278,7 +3281,9 @@ void Player::learnSpell(uint32 spellId, bool temporary /*= false*/, bool learnFr
     // Xinef: don't allow to learn active spell once more
     if (HasActiveSpell(spellId))
     {
+#ifndef MOD_PLAYERBOTS
         LOG_DEBUG("entities.player", "Player ({}) tries to learn already active spell: {}", GetGUID().ToString(), spellId);
+#endif
         return;
     }
 
@@ -6598,6 +6603,8 @@ void Player::_ApplyItemBonuses(ItemTemplate const* proto, uint8 slot, bool apply
 
             statType = proto->ItemStat[i].ItemStatType;
             val = proto->ItemStat[i].ItemStatValue;
+
+            sScriptMgr->OnApplyItemModsBefore(this, slot, apply, i, statType, val);
         }
 
         if (val == 0)
