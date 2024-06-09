@@ -37,3 +37,6 @@
 [submodule "modules/mod-zone-difficulty"]
 	path = modules/mod-zone-difficulty
 	url = https://github.com/azerothcore/mod-zone-difficulty.git
+[submodule "modules/mod-weapon-visual"]
+	path = modules/mod-weapon-visual
+	url = https://github.com/blkht01/mod-weapon-visual.git

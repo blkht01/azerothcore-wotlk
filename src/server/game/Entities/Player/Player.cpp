@@ -10348,7 +10348,8 @@ bool Player::ActivateTaxiPathTo(std::vector<uint32> const& nodes, Creature* npc 
     //RemoveAurasWithInterruptFlags(AURA_INTERRUPT_FLAG_TALK);
 
     // Xinef: dont use instant flight paths if spellid is present (custom calls use spellid = 1)
-    if ((sWorld->getIntConfig(CONFIG_INSTANT_TAXI) == 1 || (sWorld->getIntConfig(CONFIG_INSTANT_TAXI) == 2 && m_isInstantFlightOn)) && !spellid)
+    if (((sWorld->getIntConfig(CONFIG_INSTANT_TAXI) == 1 || (sWorld->getIntConfig(CONFIG_INSTANT_TAXI) == 2 && m_isInstantFlightOn)) && !spellid) || 
+    (this->GetPlayerSetting("store", 3).value != 0))
     {
         TaxiNodesEntry const* lastPathNode = sTaxiNodesStore.LookupEntry(nodes[nodes.size() - 1]);
         m_taxi.ClearTaxiDestinations();
