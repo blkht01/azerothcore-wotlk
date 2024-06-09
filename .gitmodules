@@ -33,10 +33,16 @@
 	url = https://github.com/azerothcore/mod-1v1-arena.git
 [submodule "modules/mod-challenge-modes"]
 	path = modules/mod-challenge-modes
-	url = https://github.com/ZhengPeiRu21/mod-challenge-modes.git
+	url = https://github.com/blkht01/mod-challenge-modes.git
 [submodule "modules/mod-zone-difficulty"]
 	path = modules/mod-zone-difficulty
-	url = https://github.com/azerothcore/mod-zone-difficulty.git
+	url = https://github.com/blkht01/mod-zone-difficulty.git
 [submodule "modules/mod-weapon-visual"]
 	path = modules/mod-weapon-visual
 	url = https://github.com/blkht01/mod-weapon-visual.git
+[submodule "modules/mod-solo-lfg"]
+	path = modules/mod-solo-lfg
+	url = https://github.com/blkht01/mod-solo-lfg.git
+[submodule "modules/mod-solocraft"]
+	path = modules/mod-solocraft
+	url = https://github.com/blkht01/mod-solocraft.git
