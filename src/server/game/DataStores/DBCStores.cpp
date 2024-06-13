@@ -588,9 +588,15 @@ void LoadDBCStores(const std::string& dataPath)
             }
 
             // valid taxi network node
+            // Qeme start
             uint8  field   = (uint8)((i - 1) / 32);
+            if (field >= sTaxiNodesMask.size()) {
+                LOG_ERROR("misc", "Index out of bounds: field = {}", field);
+                continue;
+            }
             uint32 submask = 1 << ((i - 1) % 32);
             sTaxiNodesMask[field] |= submask;
+            // Qeme end
 
             if (node->MountCreatureID[0] && node->MountCreatureID[0] != 32981)
                 sHordeTaxiNodesMask[field] |= submask;
