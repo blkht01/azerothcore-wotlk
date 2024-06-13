@@ -21181,11 +21181,7 @@ void Unit::PatchValuesUpdate(ByteBuffer& valuesUpdateBuf, BuildValuesCachePosPoi
     {
         uint32 appendValue = m_uint32Values[UNIT_NPC_FLAGS];
 
-<<<<<<< HEAD
-        if ((sWorld->getIntConfig(CONFIG_INSTANT_TAXI) == 3 && appendValue & UNIT_NPC_FLAG_FLIGHTMASTER) || (target->GetPlayerSetting("store", 3).value != 0 && appendValue & UNIT_NPC_FLAG_FLIGHTMASTER)) // Qeme
-=======
         if ((sWorld->getIntConfig(CONFIG_INSTANT_TAXI) == 2 && appendValue & UNIT_NPC_FLAG_FLIGHTMASTER) || (target->GetPlayerSetting("store", 3).value != 0 && appendValue & UNIT_NPC_FLAG_FLIGHTMASTER)) // Qeme
->>>>>>> a92114adfffdfffd7ad94a7aa7a41e48022b885d
             appendValue |= UNIT_NPC_FLAG_GOSSIP; // flight masters need NPC gossip flag to show instant flight toggle option
 
         if (!target->CanSeeSpellClickOn(creature))
