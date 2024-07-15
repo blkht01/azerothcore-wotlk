@@ -1,0 +1,13 @@
+DELETE FROM creature_loot_template WHERE Item = 90158;
+DELETE FROM disenchant_loot_template WHERE Item = 90158;
+DELETE FROM fishing_loot_template WHERE Item = 90158;
+DELETE FROM gameobject_loot_template WHERE Item = 90158;
+DELETE FROM item_loot_template WHERE Item = 90158;
+DELETE FROM mail_loot_template WHERE Item = 90158;
+DELETE FROM milling_loot_template WHERE Item = 90158;
+DELETE FROM pickpocketing_loot_template WHERE Item = 90158;
+DELETE FROM player_loot_template WHERE Item = 90158;
+DELETE FROM prospecting_loot_template WHERE Item = 90158;
+DELETE FROM reference_loot_template WHERE Item = 90158;
+DELETE FROM skinning_loot_template WHERE Item = 90158;
+DELETE FROM spell_loot_template WHERE Item = 90158;
