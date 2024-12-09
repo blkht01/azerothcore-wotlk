@@ -1,1 +1,0 @@
-DELETE FROM item_template WHERE entry = 90260;
