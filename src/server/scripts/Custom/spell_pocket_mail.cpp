@@ -8,7 +8,7 @@
 #include "WorldSession.h"
 
 const uint32 MAIL_NPC_ENTRY = 400197; // Mailbox NPC entry
-const uint32 INVISIBILITY_AURA_ID = 37803; // Invisibility aura spell ID
+const uint32 INVISIBILITY_AURA_ID = 37803; // 100% invisibility aura spell ID
 
 class spell_show_mailbox : public SpellScriptLoader
 {
@@ -53,10 +53,10 @@ public:
             Creature* spawnedMailbox = player->SummonCreature(MAIL_NPC_ENTRY, x, y, z, o, TEMPSUMMON_TIMED_DESPAWN, 120000);
             if (spawnedMailbox)
             {
-                // Apply invisibility aura
+                // Apply 100% invisibility aura to the NPC
                 spawnedMailbox->AddAura(INVISIBILITY_AURA_ID, spawnedMailbox);
 
-                // Make the NPC follow the player
+                // Make the NPC follow the player, to prevent spam spawning creatures
                 spawnedMailbox->GetMotionMaster()->MoveFollow(player, 1.0f, M_PI / 2); // 1.0f = follow distance, M_PI/2 = offset angle
 
                 // Show mailbox UI
