@@ -27,7 +27,6 @@ void ADDSC_player_learn_trickster_spells();
 void ADDSC_player_learn_unlearn_metamorphosis_spells();
 
 void ADDSC_spell_buddy_jump();
-void ADDSC_spell_improved_buddy_jump();
 void ADDSC_show_mailbox_spell();
 void ADDSC_spell_bank_beacon();
 void ADDSC_spell_mobile_auction();
@@ -41,7 +40,6 @@ void AddCustomScripts()
     ADDSC_player_learn_unlearn_metamorphosis_spells();
 
     ADDSC_spell_buddy_jump();
-    ADDSC_spell_improved_buddy_jump();
     ADDSC_show_mailbox_spell();
     ADDSC_spell_bank_beacon();
     ADDSC_spell_mobile_auction();

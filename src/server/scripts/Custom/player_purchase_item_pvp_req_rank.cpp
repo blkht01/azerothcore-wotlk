@@ -46,7 +46,6 @@ public:
     }
 };
 
-// Add this to your script loader to load the custom script
 void AddSC_HonorRankCheck()
 {
     new HonorRankCheck();
