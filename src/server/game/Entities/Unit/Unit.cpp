@@ -7761,6 +7761,16 @@ bool Unit::HandleDummyAuraProc(Unit* victim, uint32 damage, AuraEffect* triggere
                     triggered_spell_id = 54203;
                     break;
                 }
+                // Qeme start
+                // Divine Sheen
+                if (dummySpell->SpellIconID == 271202)
+                {
+                    // 4 healing tick
+                    basepoints0 = triggerAmount * damage / 400;
+                    triggered_spell_id = 100118;
+                    break;
+                }
+                // Qeme end
                 switch (dummySpell->Id)
                 {
                     // Judgement of Light

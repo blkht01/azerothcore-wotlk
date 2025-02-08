@@ -6,6 +6,7 @@
 #include "SpellScript.h"
 #include "SpellScriptLoader.h"
 #include "TemporarySummon.h"
+#include "ScriptMgr.h"
 
 class player_unlearn_felguard : public PlayerScript {
 

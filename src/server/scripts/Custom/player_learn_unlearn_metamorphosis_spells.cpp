@@ -11,14 +11,14 @@ public: player_learn_unlearn_metamorphosis_spells() : PlayerScript("player_learn
 	  // metamorphosis
           if (spellId == 47241)
           {
-              /* Challenging Howl */
-              player->learnSpell(59671);
-              /* Demon Charge */
-              player->learnSpell(54785);
-	      /* Immolation Aura */
-	      player->learnSpell(50589);
-              /* Shadow Cleave */
-	      player->learnSpell(50581);
+            /* Challenging Howl */
+            player->learnSpell(59671);
+            /* Demon Charge */
+            player->learnSpell(54785);
+            /* Immolation Aura */
+            player->learnSpell(50589);
+                /* Shadow Cleave */
+            player->learnSpell(50581);
           }
       }
 

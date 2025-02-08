@@ -45,7 +45,7 @@ public:
                     targetPlayer->GetPositionZ() + 0.25f, // Slight offset
                     targetPlayer->GetOrientation()))
             {
-                playerCaster->GetSession()->SendNotification("Teleport failed.");
+                playerCaster->GetSession()->SendNotification("Teleport failed. Could not validate target location.");
             }
             else
             {

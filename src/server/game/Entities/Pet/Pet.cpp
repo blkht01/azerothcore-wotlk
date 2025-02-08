@@ -1225,6 +1225,7 @@ bool Guardian::InitStatsForLevel(uint8 petlevel)
                             AddAura(SPELL_FIRE_ELEMENTAL_SCALING_02, this);
                             AddAura(SPELL_FIRE_ELEMENTAL_SCALING_03, this);
                             AddAura(SPELL_FIRE_ELEMENTAL_SCALING_04, this);
+                            AddAura(100114, this); // Fire Elemental Stamina Buff -- Qeme
                             break;
                         }
                     case NPC_EARTH_ELEMENTAL:
@@ -1237,6 +1238,7 @@ bool Guardian::InitStatsForLevel(uint8 petlevel)
                             AddAura(SPELL_EARTH_ELEMENTAL_SCALING_02, this);
                             AddAura(SPELL_EARTH_ELEMENTAL_SCALING_03, this);
                             AddAura(SPELL_EARTH_ELEMENTAL_SCALING_04, this);
+                            AddAura(100115, this); // Earth Elemental Stamina Buff -- Qeme
                             break;
                         }
                     case NPC_INFERNAL:
