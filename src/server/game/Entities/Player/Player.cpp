@@ -2961,6 +2961,10 @@ bool Player::addTalent(uint32 spellId, uint8 addSpecMask, uint8 oldTalentRank)
         newTalent->inSpellBook = talentInfo->addToSpellBook && !spellInfo->HasAttribute(SPELL_ATTR0_PASSIVE) && !spellInfo->HasEffect(SPELL_EFFECT_LEARN_SPELL);
         m_talents[spellId] = newTalent;
 
+        /* THIS IS THE CUSTOM MANA REGEN SYSTEM -- Qeme / Ire / Classic Plus */
+        UpdateManaRegen();
+        /* THE CUSTOM MANA REGEN SYSTEM ENDS HERE*/
+
         if (GetActiveSpecMask() & addSpecMask)
             m_usedTalentCount += (talentPos->rank + 1) - oldTalentRank;
 
@@ -2972,6 +2976,10 @@ bool Player::addTalent(uint32 spellId, uint8 addSpecMask, uint8 oldTalentRank)
         itr->second->specMask |= addSpecMask;
         if (itr->second->State != PLAYERSPELL_NEW)
             itr->second->State = PLAYERSPELL_CHANGED;
+
+        /* THIS IS THE CUSTOM MANA REGEN SYSTEM -- Qeme / Ire / Classic Plus */
+        UpdateManaRegen();
+        /* THE CUSTOM MANA REGEN SYSTEM ENDS HERE*/
 
         if (GetActiveSpecMask() & addSpecMask)
             m_usedTalentCount += (talentPos->rank + 1) - oldTalentRank;
@@ -3689,36 +3697,37 @@ void Player::_SaveSpellCooldowns(CharacterDatabaseTransaction trans, bool logout
 
 uint32 Player::resetTalentsCost() const
 {
-    // The first time reset costs 1 gold
+    // Define monetary constants
+    constexpr uint32 MIN_RESET_COST = 1 * GOLD;             // Minimum cost: 1g
+    constexpr uint32 MAX_RESET_COST = 25 * GOLD;            // Maximum cap: 25g
+    constexpr uint32 RESET_INCREMENT = 1 * GOLD;            // Cost increases by 1g
+    constexpr uint32 RESET_DECREASE_PER_MONTH = 5 * GOLD;   // Cost decreases by 5g per month
+
+    // Initial cost scaling
     if (m_resetTalentsCost < 1 * GOLD)
         return 1 * GOLD;
-    // then 5 gold
     else if (m_resetTalentsCost < 5 * GOLD)
         return 5 * GOLD;
-    // After that it increases in increments of 5 gold
     else if (m_resetTalentsCost < 10 * GOLD)
         return 10 * GOLD;
+
+    // Adjust cost based on time since last reset
+    uint64 months = (GameTime::GetGameTime().count() - m_resetTalentsTime) / MONTH;
+
+    if (months > 0)
+    {
+        int32 new_cost = static_cast<int32>(m_resetTalentsCost - RESET_DECREASE_PER_MONTH * months);
+        return (new_cost < MIN_RESET_COST ? MIN_RESET_COST : new_cost);
+    }
     else
     {
-        uint64 months = (GameTime::GetGameTime().count() - m_resetTalentsTime) / MONTH;
-        if (months > 0)
-        {
-            // This cost will be reduced by a rate of 5 gold per month
-            int32 new_cost = int32(m_resetTalentsCost - 5 * GOLD * months);
-            // to a minimum of 10 gold.
-            return (new_cost < 10 * GOLD ? 10 * GOLD : new_cost);
-        }
-        else
-        {
-            // After that it increases in increments of 5 gold
-            int32 new_cost = m_resetTalentsCost + 5 * GOLD;
-            // until it hits a cap of 50 gold.
-            if (new_cost > 50 * GOLD)
-                new_cost = 50 * GOLD;
-            return new_cost;
-        }
+        int32 new_cost = static_cast<int32>(m_resetTalentsCost + RESET_INCREMENT);
+        if (new_cost > MAX_RESET_COST)
+            new_cost = MAX_RESET_COST;
+        return new_cost;
     }
 }
+
 
 bool Player::resetTalents(bool noResetCost)
 {
@@ -3811,6 +3820,10 @@ bool Player::resetTalents(bool noResetCost)
         m_resetTalentsCost = resetCost;
         m_resetTalentsTime = GameTime::GetGameTime().count();
     }
+
+    /* THIS IS THE CUSTOM MANA REGEN SYSTEM -- Qeme / Ire / Classic Plus */
+    UpdateManaRegen();
+    /* THE CUSTOM MANA REGEN SYSTEM ENDS HERE*/
 
     return true;
 }
@@ -13358,9 +13371,9 @@ void Player::InitGlyphsForLevel()
         value |= 0x08;
     if (level >= 50)
         value |= 0x04;
-    if (level >= 70)
+    if (level >= 60)
         value |= 0x10;
-    if (level >= 80)
+    if (level >= 60)
         value |= 0x20;
 
     SetUInt32Value(PLAYER_GLYPHS_ENABLED, value);
@@ -15268,6 +15281,10 @@ void Player::ActivateSpec(uint8 spec)
             ++iter;
         }
     }
+
+    /* THIS IS THE CUSTOM MANA REGEN SYSTEM -- Qeme / Ire / Classic Plus */
+    UpdateManaRegen();
+    /* THE CUSTOM MANA REGEN SYSTEM ENDS HERE*/
 
     m_usedTalentCount = spentTalents;
     InitTalentForLevel();

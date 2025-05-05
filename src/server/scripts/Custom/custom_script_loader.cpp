@@ -20,7 +20,28 @@
 
 // The name of this function should match:
 // void Add${NameOfDirectory}Scripts()
+
+// Runes
+void ADDSC_player_unlearn_titan();
+void ADDSC_player_unlearn_felguard();
+void ADDSC_player_learn_unlearn_metamorphosis_spells();
+
+// Premium
+void ADDSC_spell_buddy_jump();
+void ADDSC_show_mailbox_spell();
+void ADDSC_spell_bank_beacon();
+void ADDSC_spell_mobile_auction();
+
 void AddCustomScripts()
 {
-    // MyExampleScript()
+    // Runes
+    ADDSC_player_unlearn_titan();
+    ADDSC_player_unlearn_felguard();
+    ADDSC_player_learn_unlearn_metamorphosis_spells();
+    
+    // Premium
+    ADDSC_spell_buddy_jump();
+    ADDSC_show_mailbox_spell();
+    ADDSC_spell_bank_beacon();
+    ADDSC_spell_mobile_auction();
 }
